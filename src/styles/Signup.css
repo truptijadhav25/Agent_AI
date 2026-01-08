@@ -1,0 +1,311 @@
+/* ================================
+   RESET
+================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ================================
+   ROOT COLORS (EASY TO CHANGE)
+================================ */
+:root {
+  --bg-dark: #070b1f;
+  --card-bg: rgba(15, 23, 72, 0.65);
+  --primary: #6366f1;     /* Indigo */
+  --secondary: #22d3ee;   /* Cyan */
+  --text-main: #ffffff;
+  --text-muted: #a5b4fc;
+  --error: #ef4444;
+}
+
+/* ================================
+   PAGE CONTAINER
+================================ */
+.login-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  background:
+    radial-gradient(circle at top left, rgba(99,102,241,0.25), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(34,211,238,0.25), transparent 45%),
+    linear-gradient(135deg, #050816, #030616);
+
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ================================
+   CARD (GLASS EFFECT)
+================================ */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 36px 28px;
+
+  background: var(--card-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 18px;
+  border: 1px solid rgba(99,102,241,0.25);
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.03);
+
+  animation: slideFade 0.6s ease;
+}
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateY(25px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================
+   TITLES
+================================ */
+.login-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+
+  background: linear-gradient(135deg, #ffffff, var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin-bottom: 8px;
+}
+
+.login-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+/* ================================
+   GOOGLE BUTTON
+================================ */
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,0.18),
+    rgba(34,211,238,0.18)
+  );
+
+  border: 1px solid rgba(99,102,241,0.35);
+  color: var(--text-main);
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.google-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(99,102,241,0.45);
+}
+
+.google-btn.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ================================
+   DIVIDER
+================================ */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 26px 0;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(165,180,252,0.3),
+    transparent
+  );
+}
+
+.divider-text {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ================================
+   INPUTS
+================================ */
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.25);
+
+  color: var(--text-main);
+  font-size: 14px;
+
+  transition: all 0.25s ease;
+}
+
+.input-field::placeholder {
+  color: #9aa5ff;
+}
+
+.input-field:focus {
+  outline: none;
+  background: rgba(99,102,241,0.15);
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(34,211,238,0.25);
+}
+
+.input-field.error {
+  border-color: var(--error);
+  background: rgba(239,68,68,0.12);
+}
+
+/* ================================
+   ERROR
+================================ */
+.error-message {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--error);
+}
+
+/* ================================
+   FOOTER
+================================ */
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0 22px;
+  font-size: 13px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+}
+
+.checkbox-input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--secondary);
+}
+
+.forgot-link {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  color: var(--text-main);
+}
+
+/* ================================
+   SIGN IN BUTTON
+================================ */
+.signin-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+
+  border: none;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  cursor: pointer;
+  box-shadow: 0 18px 35px rgba(99,102,241,0.55);
+  transition: all 0.3s ease;
+}
+
+.signin-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 45px rgba(34,211,238,0.6);
+}
+
+.signin-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ================================
+   SIGNUP LINK
+================================ */
+.signup-section {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.signup-link {
+  color: var(--text-main);
+  font-weight: 700;
+  margin-left: 6px;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   MOBILE SAFETY
+================================ */
+@media (max-width: 420px) {
+  .login-card {
+    padding: 28px 20px;
+  }
+
+  .login-title {
+    font-size: 26px;
+  }
+}
